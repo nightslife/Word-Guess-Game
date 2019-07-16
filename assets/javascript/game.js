@@ -9,8 +9,7 @@ var currentGuesses = [];
 var incorrect = document.getElementById("incorrect");
 var allBlanksArray = Array.from(spaces.repeat(round.length));
 var roundLetters = Array.from(round);
-console.log(roundLetters);
-console.log(allBlanksArray);
+var numberWins = document.getElementById("numberWin")
 
 
 
@@ -48,11 +47,27 @@ document.onkeypress = function (event) {
         guessesLeft.textContent = numberGuesses;
         currentGuesses.push(letterPress);
         incorrect.textContent = currentGuesses.join(", ");
+        if(numberGuesses === 0) {
+            var answerText = document.getElementById("answer");
+            answerText.textContent = round;
+            document.getElementById("previousImg").src = "assets/images/"+round+".jpg"
+        }
       }
     else for(i=0; i<roundLetters.length; i++){
             if (roundLetters[i] === letterPress){
                 allBlanksArray[i] = letterPress
                 hidden.textContent = allBlanksArray.join("");
             }
-        }   
+            if(allBlanksArray.indexOf("_") <0) {
+                wins++;
+                numberWins.textContent = wins
+                var answerText = document.getElementById("answer");
+                answerText.textContent = round;
+                document.getElementById("previousImg").src = "assets/images/"+round+".jpg"
+            }
+        } 
+    return numberGuesses
+
 };
+
+
