@@ -4,7 +4,7 @@ var spaces = "_";
 var wins = 0;
 var guessesLeft = document.getElementById("guessesLeft");
 var incorrect = document.getElementById("incorrect");
-var numberWins = document.getElementById("numberWin")
+var numberWins = document.getElementById("numberWin");
 var alphabet = /^[a-zA-Z]+$/;
 
 
