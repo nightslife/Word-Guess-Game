@@ -72,7 +72,6 @@ function newGame(){
                     if (roundLetters[i] === letterPress){
                         allBlanksArray[i] = letterPress
                         hidden.textContent = allBlanksArray.join("");
-                    
                         if(allBlanksArray.indexOf("_") <0) {
                             wins++;
                             numberWins.textContent = wins;
