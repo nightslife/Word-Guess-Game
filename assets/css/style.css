@@ -62,7 +62,7 @@ img{
 #rules,#wins,#incorrect,#guesses{
     width:75%;
     margin:auto;
-    text-shadow: 2px 2px #000
+    text-shadow: 4px 4px #000
 }
 #rules{
     margin-top: 2%;
