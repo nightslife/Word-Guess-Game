@@ -5,6 +5,7 @@ var wins = 0;
 var guessesLeft = document.getElementById("guessesLeft");
 var incorrect = document.getElementById("incorrect");
 var numberWins = document.getElementById("numberWin")
+var alphabet = /^[a-zA-Z]+$/;
 
 
 
@@ -43,35 +44,35 @@ function newGame(){
         var letterPress = event.key.toUpperCase();
         // console.log(letterPress);
         // Compare Key Press to Letters
-        if (roundLetters.indexOf(letterPress) < 0 & currentGuesses.indexOf(letterPress) < 0) {
-            numberGuesses--;
-            // console.log(numberGuesses);
-            guessesLeft.textContent = numberGuesses;
-            currentGuesses.push(letterPress);
-            incorrect.textContent = currentGuesses.join(", ");
-            if(numberGuesses === 0) {
-                var answerText = document.getElementById("answer");
-                answerText.textContent = round;
-                document.getElementById("previousImg").src = "assets/images/"+round+".jpg"
-                newGame()
-            }
-        }
-        else for(i=0; i<roundLetters.length; i++){
-                if (roundLetters[i] === letterPress){
-                    allBlanksArray[i] = letterPress
-                    hidden.textContent = allBlanksArray.join("");
-                }
-                if(allBlanksArray.indexOf("_") <0) {
-                    wins++;
-                    numberWins.textContent = wins;
+        if (letterPress.match(alphabet)) {
+            if (roundLetters.indexOf(letterPress) < 0 & currentGuesses.indexOf(letterPress) < 0) {
+                numberGuesses--;
+                // console.log(numberGuesses);
+                guessesLeft.textContent = numberGuesses;
+                currentGuesses.push(letterPress);
+                incorrect.textContent = currentGuesses.join(", ");
+                if(numberGuesses === 0) {
                     var answerText = document.getElementById("answer");
                     answerText.textContent = round;
-                    document.getElementById("previousImg").src = "assets/images/"+round+".jpg";
+                    document.getElementById("previousImg").src = "assets/images/"+round+".jpg"
                     newGame()
                 }
-            } 
-        return numberGuesses
-
+            }
+            else for(i=0; i<roundLetters.length; i++){
+                    if (roundLetters[i] === letterPress){
+                        allBlanksArray[i] = letterPress
+                        hidden.textContent = allBlanksArray.join("");
+                    }
+                    if(allBlanksArray.indexOf("_") <0) {
+                        wins++;
+                        numberWins.textContent = wins;
+                        var answerText = document.getElementById("answer");
+                        answerText.textContent = round;
+                        document.getElementById("previousImg").src = "assets/images/"+round+".jpg";
+                        newGame()
+                    }
+                } 
+        }
     };
 }
 newGame()
