@@ -72,15 +72,15 @@ function newGame(){
                     if (roundLetters[i] === letterPress){
                         allBlanksArray[i] = letterPress
                         hidden.textContent = allBlanksArray.join("");
-                    }
-                    if(allBlanksArray.indexOf("_") <0) {
-                        wins++;
-                        numberWins.textContent = wins;
-                        var answerText = document.getElementById("answer");
-                        answerText.textContent = round;
-                        document.getElementById("previousImg").src = "assets/images/"+round+".jpg";
-                        newGame()
-                    }
+                    
+                        if(allBlanksArray.indexOf("_") <0) {
+                            wins++;
+                            numberWins.textContent = wins;
+                            var answerText = document.getElementById("answer");
+                            answerText.textContent = round;
+                            document.getElementById("previousImg").src = "assets/images/"+round+".jpg";
+                            newGame()
+                    }}
                 } 
         }
     };
