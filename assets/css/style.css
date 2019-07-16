@@ -1,0 +1,86 @@
+@font-face{
+  font-family: HorrorFont;
+  src: url("../font/CFNightofTerrorPERSONAL-Reg.ttf")
+}
+@font-face{
+    font-family: HorrorBody;
+    src: url("../font/The\ Macabre.otf")
+}
+body{
+    background-image: url("../images/background.jpg");
+    font-size: 32px;
+    line-height: 48px;
+    font-family: HorrorBody;
+    text-shadow: 2px 2px #ff0000;
+    text-align: center;
+}
+header{
+    font-size: 84px;
+    margin: auto;
+    padding-top: 2%;
+    font-family: HorrorFont;
+    color: white;
+    line-height: 108px;
+
+}
+#answerImg{
+    /* height: 250px;
+    width: 250px; */
+    /* margin: 2% auto 0% auto; */
+    /* border: 1px solid white; */
+
+}
+img{
+    height: 200px;
+    width: 300px;
+    border: 1px solid white;
+    /* text-align: center; */
+    margin: 1% auto 2% auto;
+    display: block;
+
+}
+#previous{
+    margin: auto;
+    font-size: 54px;
+    line-height: 81px;
+    padding-bottom: 2%;
+}
+#container{
+    width: 80%;
+    /* border: 1px solid white; */
+    margin: auto;
+    position: relative;
+    max-width: 960px;
+}
+
+#guesses{
+    border-right: 1px solid white;
+    height: 100%;
+    width: 50%;
+    color: red;
+    margin: auto;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    border: 3px solid white
+    
+}
+#rules,#wins,#incorrect{
+    width:75%;
+    margin:auto;
+    text-shadow: 2px 2px #000
+}
+#rules{
+    margin-top: 2%;
+}
+#blanks{
+    height: 100%;
+    width:50%;
+    color: white;
+    margin: none;
+    position: absolute;
+    top: 0px;
+    left: 50%;
+    border: 3px solid white
+    
+}
