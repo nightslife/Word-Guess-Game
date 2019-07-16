@@ -47,14 +47,13 @@ function newGame(){
         if (letterPress.match(alphabet)) {
             if (roundLetters.indexOf(letterPress) < 0 & currentGuesses.indexOf(letterPress) < 0) {
                 numberGuesses--;
-                // console.log(numberGuesses);
                 guessesLeft.textContent = numberGuesses;
                 currentGuesses.push(letterPress);
                 incorrect.textContent = currentGuesses.join(", ");
                 if(numberGuesses === 0) {
                     var answerText = document.getElementById("answer");
                     answerText.textContent = round;
-                    document.getElementById("previousImg").src = "assets/images/"+round+".jpg"
+                    document.getElementById("previousImg").src = "assets/images/"+round+".jpg";
                     newGame()
                 }
             }
