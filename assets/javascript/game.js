@@ -1,5 +1,6 @@
 // Initial variables/choices
-var choices = ["ALIEN", "DRACULA", "FRANKENSTEIN", "GODZILLA", "JAWS", "MARTIANS", "MUMMY", "PREDATOR", "WEREWOLF", "ZOMBIE", "KING KONG", "THE THING"];
+var choices = ["ALIEN", "DRACULA", "FRANKENSTEIN", "GODZILLA", "JAWS", "MARTIANS", "MUMMY", "PREDATOR", "WEREWOLF", "ZOMBIE", "KING KONG", "THE THING","GHOST",
+"INVISIBLE MAN"];
 var spaces = "_";
 var wins = 0;
 var guessesLeft = document.getElementById("guessesLeft");
@@ -16,7 +17,7 @@ const lossSound = new Audio()
 // New game function
 function newGame(){
     //game variables
-    var round = choices[Math.floor((Math.random() * 12))];
+    var round = choices[Math.floor((Math.random() * 14))];
     var numberGuesses = 8;
     guessesLeft.textContent = numberGuesses
     var currentGuesses = [];
