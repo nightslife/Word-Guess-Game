@@ -6,13 +6,16 @@ var guessesLeft = document.getElementById("guessesLeft");
 var incorrect = document.getElementById("incorrect");
 var numberWins = document.getElementById("numberWin");
 var alphabet = /^[a-zA-Z]+$/;
+const lossSound = new Audio()
 
 
 
 // console.log("It has " + round.length + " letters");
 
-// Sets the number of spaces on the html
+
+// New game function
 function newGame(){
+    //game variables
     var round = choices[Math.floor((Math.random() * 12))];
     var numberGuesses = 8;
     guessesLeft.textContent = numberGuesses
@@ -21,6 +24,7 @@ function newGame(){
     var allBlanksArray = Array.from(spaces.repeat(round.length));
     var roundLetters = Array.from(round);
 
+// Sets the number of spaces on the html
     roundLetters.forEach(function (space) {
         if(space === " ") {
             console.log(roundLetters.indexOf(space));
@@ -42,6 +46,11 @@ function newGame(){
     // Determine Key Press
     document.onkeypress = function (event) {
         var letterPress = event.key.toUpperCase();
+        function losingSound(){
+            var scream = Math.random() < 0.5 ? "FemaleScream" : "WilhelmScream";
+            lossSound.src = "assets/soundfiles/"+scream+".mp3";
+            lossSound.play();
+        }
         // console.log(letterPress);
         // Compare Key Press to Letters
         if (letterPress.match(alphabet)) {
@@ -54,6 +63,7 @@ function newGame(){
                     var answerText = document.getElementById("answer");
                     answerText.textContent = round;
                     document.getElementById("previousImg").src = "assets/images/"+round+".jpg";
+                    losingSound();
                     newGame()
                 }
             }
