@@ -7,7 +7,7 @@ var guessesLeft = document.getElementById("guessesLeft");
 var incorrect = document.getElementById("incorrect");
 var numberWins = document.getElementById("numberWin");
 var alphabet = /^[a-zA-Z]+$/;
-const lossSound = new Audio()
+var lossSound = new Audio();
 
 
 
@@ -19,9 +19,9 @@ function newGame(){
     //game variables
     var round = choices[Math.floor((Math.random() * 14))];
     var numberGuesses = 8;
-    guessesLeft.textContent = numberGuesses
+    guessesLeft.textContent = numberGuesses;
     var currentGuesses = [];
-    incorrect.textContent = currentGuesses
+    incorrect.textContent = currentGuesses;
     var allBlanksArray = Array.from(spaces.repeat(round.length));
     var roundLetters = Array.from(round);
 
@@ -31,7 +31,7 @@ function newGame(){
             console.log(roundLetters.indexOf(space));
             allBlanksArray[roundLetters.indexOf(space)] = " ";
         }
-        return allBlanksArray
+        return allBlanksArray;
     });
 
 
@@ -62,26 +62,26 @@ function newGame(){
                 incorrect.textContent = currentGuesses.join(", ");
                 if(numberGuesses === 0) {
                     var answerText = document.getElementById("answer");
-                    answerText.textContent = round;
+                    answerText.textContent = "Previous round: "+ round;
                     document.getElementById("previousImg").src = "assets/images/"+round+".jpg";
                     losingSound();
-                    newGame()
+                    newGame();
                 }
             }
             else for(i=0; i<roundLetters.length; i++){
                     if (roundLetters[i] === letterPress){
-                        allBlanksArray[i] = letterPress
+                        allBlanksArray[i] = letterPress;
                         hidden.textContent = allBlanksArray.join("");
                         if(allBlanksArray.indexOf("_") <0) {
                             wins++;
                             numberWins.textContent = wins;
                             var answerText = document.getElementById("answer");
-                            answerText.textContent = round;
+                            answerText.textContent = "Previous round: "+ round;
                             document.getElementById("previousImg").src = "assets/images/"+round+".jpg";
-                            newGame()
+                            newGame();
                     }}
                 } 
         }
     };
 }
-newGame()
+newGame();
